@@ -9,3 +9,7 @@ a, a:hover, a:visited, a:active {
 .template {
   display: none;
 }
+
+.main-nav h1 {
+  color: #FFCC00;
+}
