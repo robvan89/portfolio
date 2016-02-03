@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Blog</title>
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <!-- Made a kewl change yo -->
@@ -15,15 +15,22 @@
           </h1>
           <p>Code and stuff</p>
         </header>
-        <nav>
+        <nav class="main-nav">
           <ul>
-            <li>Articles</li>
-            <li>About (coming soon!)</li>
-            <li><a href="http://www.facebook.com/robwvanleuven" target="_blank">Facebook</a></li>
-            <li><a href="http://github.com/robvan89" target="_blank">Github</a></li>
+            <li class="tab" data-content="articles"><a href="#" class="icon-home3">Articles</a></li>
+            <li class="tab" data-content="about"><a href="#" class="icon-happy">About (coming soon!)</a></li>
+            <li><a href="http://www.facebook.com/robwvanleuven" target="_blank" class="icon-twitter3">Facebook</a></li>
+            <li><a href="http://github.com/robvan89" target="_blank" class="icon-github">Github</a></li>
           </ul>
         </nav>
-        <section id="articles">
+        <section id="articles" class="tab-content">
+          <ul id="filters">
+            <li>
+              <select id="category-filter">
+                <option value="">-- Filter by Categories --</option>
+              </select>
+            </li>
+          </ul>
           <article class="template" data-category="cat">
             <header>
               <h1>Title</h1>
@@ -34,6 +41,17 @@
             <section class="article-body"></section>
           </article>
         </section>
+        <section id="about" class="tab-content">
+          <header>
+            Welcome to my Blog
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Copypasta</li>
+            </ul>
+          </section>
+        </section>
       </div>
     </main>
     <footer>
@@ -41,7 +59,8 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-1.12.0.js" type="text/javascript"></script>
-    <script src="js/blogArticles.js" type="text/javascript"></script>
-    <script src="js/article.js" type="text/javascript"></script>
+    <script src="js/datasrc.js" type="text/javascript"></script>
+    <script src="js/page.js" type="text/javascript"></script>
+    <script src="js/filtering.js" type="text/javascript"></script>
   </body>
 </html>
