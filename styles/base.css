@@ -1,0 +1,61 @@
+/* TODO: Add a rule for images, so they never exceed their container's width. */
+
+img {
+  max-width: 100%;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 100%;
+  color: #313131;
+}
+
+main {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+hr {
+  margin: 1em;
+  width: 80%;
+}
+
+/*TEXT STYLES
+=======================================*/
+p {
+  font-size: 1em;
+}
+
+address {
+  display: inline-block;
+}
+
+.main-nav ul li a {
+  font-family: 'Poiret One', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.heading-group-h1 h1, .heading-group-h1 h2 {
+  color: #FFF;
+}
+
+/*LINK STYLES
+=======================================*/
+
+a, a:link, a:active {
+  text-decoration: none;
+  color: #777;
+}
+
+a:hover, a:focus {
+  color: #29506D;
+}
+
+a:visited {
+}
+
+.main-nav ul li {
+  background:rgba(255, 255, 255, 0.5);
+}
