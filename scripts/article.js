@@ -46,24 +46,17 @@ Article.fetchAll = function() {
         var eTag = xhr.getResponseHeader('eTag');
         if(!localStorage.eTag || eTag !== localStorage.eTag) {
           localStorage.eTag = eTag;
+          Article.getAll();
           console.log('changed etag load');
         } else {
-          //Article.loadAll(JSON.parse(localStorage.rawData));
+          Article.loadAll(JSON.parse(localStorage.rawData));
+          articleView.initIndexPage();
           console.log('Loaded from LS');
         }
       }
     });
 
-    Article.loadAll(JSON.parse(localStorage.rawData));
-    articleView.initIndexPage();
-
   } else {
     Article.getAll();
   }
-}
-
-articleView.initIndexPage = function() {
-  Article.all.forEach(function(a){
-    $('#articles').append(a.toHtml())
-  });
 }

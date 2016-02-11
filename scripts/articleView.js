@@ -44,9 +44,12 @@ articleView.setTeasers = function() {
   });
 };
 
-$(document).ready(function() {
+articleView.initIndexPage = function() {
+  Article.all.forEach(function(a){
+    $('#articles').append(a.toHtml())
+  });
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-})
+}
