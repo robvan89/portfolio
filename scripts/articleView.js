@@ -22,7 +22,6 @@ articleView.handleCategoryFilter = function() {
       $('article').fadeIn();
       $('article.template').hide();
     }
-    $('#author-filter').val('');
   });
 };
 

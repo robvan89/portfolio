@@ -65,7 +65,15 @@
 
   .main-nav ul li {
     display: inline;
-    padding-left: 6%;
-    padding-right: 7%;
+    width: 15%;
+    padding-right: 2%;
+  }
+
+  .main-nav li {
+    text-align: center;
+  }
+
+  .main-nav ul li a:hover {
+    color: #FFF;
   }
 }
