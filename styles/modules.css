@@ -1,0 +1,75 @@
+.site-header {
+  background-image:url('http://pssmrpg.jonathanddalton.com/wp-content/uploads/Space-BG-1.png');
+  background-repeat: no-repeat;
+}
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+.icon-menu {
+  float: right;
+  font-size: 2.2em;
+  margin-right: 3%;
+}
+
+.main-nav ul {
+  display: none;
+  padding: 0;
+  list-style: none;
+  clear: both;
+}
+
+.main-nav:hover ul {
+  display: block;
+}
+
+.main-nav li {
+  margin-right: .4em;
+  font-size: 1.5em;
+  padding-top: .2em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #444;
+}
+
+#filters {
+  padding: 0;
+  list-style: none;
+}
+
+.template {
+  display: none;
+}
+
+.byline {
+  color: #777;
+}
+
+.byline a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 800px) {
+
+  .icon-menu {
+    display: none;
+  }
+
+  .main-nav {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content:center;
+  }
+
+  .main-nav ul {
+    display: block;
+  }
+
+  .main-nav ul li {
+    display: inline;
+    padding-left: 6%;
+    padding-right: 7%;
+  }
+}
