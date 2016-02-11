@@ -57,14 +57,10 @@
     display: none;
   }
 
-  .main-nav {
-    display: inline-flex;
+  .main-nav ul, .main-nav:hover ul {
+    display: flex;
     flex-direction: row;
     justify-content:center;
-  }
-
-  .main-nav ul {
-    display: block;
   }
 
   .main-nav ul li {
