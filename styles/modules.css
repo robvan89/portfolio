@@ -57,19 +57,23 @@
     display: none;
   }
 
-  .main-nav {
-    display: inline-flex;
+  .main-nav ul, .main-nav:hover ul {
+    display: flex;
     flex-direction: row;
     justify-content:center;
   }
 
-  .main-nav ul {
-    display: block;
-  }
-
   .main-nav ul li {
     display: inline;
-    padding-left: 6%;
-    padding-right: 7%;
+    width: 15%;
+    padding-right: 2%;
+  }
+
+  .main-nav li {
+    text-align: center;
+  }
+
+  .main-nav ul li a:hover {
+    color: #FFF;
   }
 }

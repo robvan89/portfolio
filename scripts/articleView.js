@@ -22,7 +22,6 @@ articleView.handleCategoryFilter = function() {
       $('article').fadeIn();
       $('article.template').hide();
     }
-    $('#author-filter').val('');
   });
 };
 
@@ -32,12 +31,12 @@ articleView.handleMainNav = function() {
     $('#' + $(this).data('content')).fadeIn();
   });
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
+  $('.main-nav .tab:first').click();
 };
 
 articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
-
+  $('.article-body *:nth-of-type(n+2)').hide();
+  console.log("Teasers set");
   $('#articles').on('click', 'a.read-on', function(e) {
     e.preventDefault();
     $(this).parent().find('*').fadeIn();
@@ -45,9 +44,12 @@ articleView.setTeasers = function() {
   });
 };
 
-$(document).ready(function() {
+articleView.initIndexPage = function() {
+  Article.all.forEach(function(a){
+    $('#articles').append(a.toHtml())
+  });
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-})
+}

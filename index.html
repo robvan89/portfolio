@@ -16,9 +16,6 @@
       <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
         <header>
           <h1>{{title}}</h1>
-          <div class="byline">By <address><a href="{{authorUrl}}">{{author}}</a></address>
-          {{publishStatus}}
-          </div>
         </header>
         {{{body}}}
       </article>
@@ -57,9 +54,6 @@
         <article class="template template" data-category="cat">
           <header>
             <h1>Title</h1>
-            <div class="byline">
-              <!--Published <time pubdate datetime="2000-01-01">Publish Time</time>-->
-            </div>
           </header>
           <section class="article-body">{{{body}}}</section>
           <a href="#" class="read-on">Read on &rarr;</a>
@@ -87,5 +81,6 @@
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
+    <script>Article.fetchAll();</script>
   </body>
 </html>
