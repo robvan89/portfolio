@@ -6,7 +6,10 @@ function Article (opts) {
   },this);
 }
 
-Article.all = [];
+Article.all = rawData.map(function(ele) {
+    return new Article(ele);
+  });
+};
 
 Article.prototype.toHtml = function() {
   var template = Handlebars.compile($('#article-template').text());
@@ -34,8 +37,6 @@ Article.getAll = function(rawData) {
   });
 }
 
-// This function will retrieve the data from either a local or remote source,
-// and process it, then hand off control to the View.
 Article.fetchAll = function() {
   if (localStorage.rawData) {
     $.ajax({
