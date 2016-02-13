@@ -1,33 +1,63 @@
-var articles = [];
+(function(module) {
 
-function Article (opts) {
-  Object.keys(opts).forEach(function(e, index, keys) {
-    this[e] = opts[e];
-  },this);
-}
+  function Article (opts) {
+    Object.keys(opts).forEach(function(e, index, keys) {
+      this[e] = opts[e];
+    },this);
+  };
 
-Article.prototype.toHtml = function() {
-  var template = Handlebars.compile($('#article-template').text());
-  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
-  this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
-  this.body = marked(this.body);
-  return template(this);
+  Article.all = [];
 
-  // TODO: Use the function that Handlebars gave you to return your filled-in html template for THIS article.
-};
+  Article.prototype.toHtml = function() {
+    var template = Handlebars.compile($('#article-template').text());
+    this.body = marked(this.body);
 
-Article.prototype.newStuff = function() {
+    return template(this);
+  };
 
-}
+  Article.loadAll = function(rawData) {
+    rawData.sort(function(a,b) {
+      return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+    });
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+    rawData.forEach(function(ele) {
+      Article.all.push(new Article(ele));
+    })
+  };
 
-rawData.forEach(function(ele) {
-  articles.push(new Article(ele));
-})
+  Article.getAll = function(rawData) {
+    $.getJSON('data/portdata.json', function(rawData) {
+      console.log('loading json anew');
+      localStorage.rawData = JSON.stringify(rawData);
+      Article.loadAll(rawData);
+      articleView.initIndexPage();
+    });
+  };
 
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
-});
+  // This function will retrieve the data from either a local or remote source,
+  // and process it, then hand off control to the View.
+  Article.fetchAll = function() {
+    if (localStorage.rawData) {
+      $.ajax({
+        type: 'HEAD',
+        url: 'data/portdata.json',
+        success: function(data,message,xhr) {
+          console.log(xhr);
+          var eTag = xhr.getResponseHeader('eTag');
+          if(!localStorage.eTag || eTag !== localStorage.eTag) {
+            localStorage.eTag = eTag;
+            Article.getAll();
+            console.log('changed etag load');
+          } else {
+            Article.loadAll(JSON.parse(localStorage.rawData));
+            articleView.initIndexPage();
+            console.log('Loaded from LS');
+          }
+        }
+      });
+    } else {
+      Article.getAll();
+    }
+  };
+module.Project = Project;
+})(window);

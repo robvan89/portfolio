@@ -21,6 +21,17 @@
   clear: both;
 }
 
+.main-nav ul li a {
+  font-family: 'Poiret One', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.main-nav ul li {
+  background:rgba(255, 255, 255, 0.5);
+}
+
 .main-nav:hover ul {
   display: block;
 }
@@ -57,19 +68,23 @@
     display: none;
   }
 
-  .main-nav {
-    display: inline-flex;
+  .main-nav ul, .main-nav:hover ul {
+    display: flex;
     flex-direction: row;
     justify-content:center;
   }
 
-  .main-nav ul {
-    display: block;
-  }
-
   .main-nav ul li {
     display: inline;
-    padding-left: 6%;
-    padding-right: 7%;
+    width: 15%;
+    padding-right: 2%;
+  }
+
+  .main-nav li {
+    text-align: center;
+  }
+
+  .main-nav ul li a:hover {
+    color: #FFF;
   }
 }
