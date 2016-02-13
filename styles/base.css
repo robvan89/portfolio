@@ -13,11 +13,6 @@ main {
   padding-right: 3%;
 }
 
-hr {
-  margin: 1em;
-  width: 80%;
-}
-
 /*TEXT STYLES
 =======================================*/
 p {
@@ -26,13 +21,6 @@ p {
 
 address {
   display: inline-block;
-}
-
-.main-nav ul li a {
-  font-family: 'Poiret One', Arial, sans-serif;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #000;
 }
 
 .heading-group-h1 h1, .heading-group-h1 h2 {
@@ -52,10 +40,6 @@ a:hover, a:focus {
 }
 
 a:visited {
-}
-
-.main-nav ul li {
-  background:rgba(255, 255, 255, 0.5);
 }
 
 img {

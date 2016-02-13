@@ -17,10 +17,10 @@
         <header>
           <h1>{{title}}</h1>
         </header>
-        {{{body}}}
+        <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-on">Read on &rarr;</a>
       </article>
     </script>
-
   </head>
   <body>
     <header class="site-header clearfix">
@@ -42,15 +42,9 @@
     </header>
     <main>
       <section id="articles" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
               <select id="category-filter">
                 <option value="">-- Filter by Categories --</option>
               </select>
-            </li>
-          </ul>
-        </div>
         <article class="template template" data-category="cat">
           <header>
             <h1>Title</h1>
@@ -72,7 +66,7 @@
       </section>
     </main>
     <footer>
-      &copy; 2016
+      <section id="footer-content">&copy; 2016</section>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

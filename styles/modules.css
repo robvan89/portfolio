@@ -21,6 +21,17 @@
   clear: both;
 }
 
+.main-nav ul li a {
+  font-family: 'Poiret One', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.main-nav ul li {
+  background:rgba(255, 255, 255, 0.5);
+}
+
 .main-nav:hover ul {
   display: block;
 }

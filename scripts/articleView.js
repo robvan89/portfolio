@@ -1,4 +1,4 @@
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+(function(module) {
 var articleView = {};
 
 articleView.populateFilters = function() {
@@ -52,4 +52,6 @@ articleView.initIndexPage = function() {
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-}
+};
+module.Project = Project;
+})(window);
