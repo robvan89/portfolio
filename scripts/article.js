@@ -8,6 +8,23 @@
 
   Article.all = [];
 
+  Article.createTable = function(callback) {
+    webDB.execute(
+      'CREATE TABLE IF NOT EXISTS articles (' +
+        'id INTEGER PRIMARY KEY, ' +
+        'title VARCHAR(255) NOT NULL, ' +
+        'author VARCHAR(255) NOT NULL, ' +
+        'authorUrl VARCHAR (255), ' +
+        'category VARCHAR(20), ' +
+        'publishedOn DATETIME, ' +
+        'body TEXT NOT NULL);',
+      function(result) {
+        console.log('Successfully set up the articles table.', result);
+        if (callback) callback();
+      }
+    );
+  };
+
   Article.prototype.toHtml = function() {
     var template = Handlebars.compile($('#article-template').text());
     this.body = marked(this.body);
@@ -34,8 +51,6 @@
     });
   };
 
-  // This function will retrieve the data from either a local or remote source,
-  // and process it, then hand off control to the View.
   Article.fetchAll = function() {
     if (localStorage.rawData) {
       $.ajax({
@@ -59,5 +74,5 @@
       Article.getAll();
     }
   };
-module.Project = Project;
+module.Article = Article;
 })(window);

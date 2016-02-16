@@ -25,15 +25,6 @@ articleView.handleCategoryFilter = function() {
   });
 };
 
-articleView.handleMainNav = function() {
-  $('.main-nav').on('click', '.tab', function(e) {
-    $('.tab-content').hide();
-    $('#' + $(this).data('content')).fadeIn();
-  });
-
-  $('.main-nav .tab:first').click();
-};
-
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
   console.log("Teasers set");
@@ -50,8 +41,7 @@ articleView.initIndexPage = function() {
   });
   articleView.populateFilters();
   articleView.handleCategoryFilter();
-  articleView.handleMainNav();
   articleView.setTeasers();
 };
-module.Project = Project;
+module.articleView = articleView;
 })(window);
