@@ -1,16 +1,27 @@
-img {
-  max-width: 100%;
+html, body{
+  height:100%;
 }
 
 body {
   line-height: 1.5;
   font-size: 100%;
   color: #313131;
+  background-color: #FEFFFF;
 }
 
 main {
   padding-left: 3%;
   padding-right: 3%;
+}
+
+.selfie {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 80%;
+  border-radius: 800px 800px 800px 800px;
+  border: 3px solid #FFF;
 }
 
 /*TEXT STYLES
@@ -27,6 +38,29 @@ address {
   color: #FFF;
 }
 
+.catfilt {
+  text-align:center;
+}
+
+#category-filter, #category-filter option {
+  background:rgba(255, 255, 255, 0.7);
+}
+
+.myname {
+  font-family: 'Caveat Brush', cursive;
+  font-weight: bold;
+  font-size: 2.8em;
+  line-height: 0.1em;
+  text-align: center;
+}
+
+.mytitle {
+  font-family: 'Poiret One', Arial, sans-serif;
+  text-align: center;
+  line-height: 1.0em;
+  font-weight: bold;
+}
+
 /*LINK STYLES
 =======================================*/
 
@@ -40,11 +74,4 @@ a:hover, a:focus {
 }
 
 a:visited {
-}
-
-img {
-  position: relative;
-  max-width: 20%;
-  padding: 3px 5px 5px 5px;
-  float: right;
 }
