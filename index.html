@@ -12,15 +12,21 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/bottom.css">
 
     <script id="article-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
-        <header>
-          <h1>{{title}}</h1>
-        </header>
-        <section class="article-body">{{{body}}}</section>
-        <a href="#" class="read-on">Read on &rarr;</a>
-      </article>
+      <section class="containme">
+        <article class="clearfix" title="{{title}}" data-category="{{category}}" idx="{{idx}}">
+          <header>
+            <h1>{{title}}</h1>
+          </header>
+          <section class="article-body">{{{body}}}</section>
+          <a href="#" class="read-on">Read on &rarr;</a>
+        </article>
+      </section>
+    </script>
+    <script id="link-template" type="text/x-handlebars-template">
+        <li><a href='"#' + {{idx}} + '"'> + {{title}} + '</a></li>
     </script>
   </head>
   <body>
@@ -31,41 +37,51 @@
       <p class="mytitle">Web designer/aspiring developer</p>
       <ul>
         <li class="tab moveover" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
-        <li class="tab moveover" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
-        <li class="moveover"><a href="http://twitter.com/dril" target="_blank" class="icon-twitter3"> Twitter</a></li>
+        <li class="moveover"><a href="http://twitter.com/dril" target="_blank" class="icon-twitter3"> About</a></li>
+        <li class="tab moveover" data-content="code"><a href="/code" class="icon-address-book"> Code</a></li>
         <li class="moveover"><a href="http://github.com/robvan89" target="_blank" class="icon-github"> GitHub</a></li>
       </ul>
       <section class="catfilt">
         <select id="category-filter">
-          <option value="">-- Filter by Categories --</option>
+          <option value="">Select Category</option>
         </select>
       </section>
     </nav>
     <main>
-      <section id="articles" class="tab-content">
-        <article class="template template" data-category="cat">
-          <header>
-            <h1>Title</h1>
-          </header>
-          <section class="article-body">{{{body}}}</section>
-          <a href="#" class="read-on">Read on &rarr;</a>
-        </article>
+      <section id="articles" class="tab-content arthome">
       </section>
-      <section id="about" class="tab-content">
-        <header>
-          Welcome to my Portfolio
-        </header>
-        <section>
-          <h1>Some of my interests:</h1>
-          <ul>
-            <li>Copypasta</li>
-          </ul>
+      <section id="code" class="tab-content codehome">
+        <section class="containme">
+          <header>
+            Welcome to my Portfolio
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Copypasta</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+      <section id="code" class="tab-content abouthome">
+        <section class="containme">
+          <header>
+            Welcome to my Portfolio
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Copypasta</li>
+            </ul>
+          </section>
         </section>
       </section>
     </main>
     <footer>
       <section id="footer-content">&copy; 2016</section>
     </footer>
+    <section id="bottomcontroller">
+    </section>
 
     <script src="/scripts/githubToken.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -83,7 +99,9 @@
     <script src="/scripts/articleView.js"></script>
     <script src="/scripts/articleController.js"></script>
 
-    <script src="/scripts/aboutController.js"></script>
+    <script src="/scripts/codeController.js"></script>
+
+    <script src="/scripts/bottomControls.js"></script>
 
     <script src="/scripts/routes.js"></script>
     <script>Article.fetchAll();</script>

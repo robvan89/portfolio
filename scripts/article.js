@@ -74,5 +74,6 @@
       Article.getAll();
     }
   };
+
 module.Article = Article;
 })(window);

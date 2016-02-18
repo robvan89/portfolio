@@ -42,6 +42,7 @@ articleView.initIndexPage = function() {
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.setTeasers();
+  bottomControls.fillBottom();
 };
 module.articleView = articleView;
 })(window);

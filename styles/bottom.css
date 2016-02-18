@@ -1,0 +1,38 @@
+#bottomcontroller {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  background: #FFF;
+  height: 10%;
+  width: 70%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  border-top: 1px solid #888;
+  border-right: 2px solid #888;
+  border-left: 2px solid #888;
+}
+
+#bottomcontroller li {
+  list-style: none;
+  display: inline-block;
+  padding-top: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-right: 2px solid #888;
+  width: 14%;
+  height: 100%;
+  background: #fd1e19;
+  background: -moz-linear-gradient(top,  #fd1e19 0%, #b20804 7%, #b20804 49%, #a40905 51%, #910907 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fd1e19), color-stop(7%,#b20804), color-stop(49%,#b20804), color-stop(51%,#a40905), color-stop(100%,#910907));
+  background: -webkit-linear-gradient(top,  #fd1e19 0%,#b20804 7%,#b20804 49%,#a40905 51%,#910907 100%);
+  background: -o-linear-gradient(top,  #fd1e19 0%,#b20804 7%,#b20804 49%,#a40905 51%,#910907 100%);
+  background: -ms-linear-gradient(top,  #fd1e19 0%,#b20804 7%,#b20804 49%,#a40905 51%,#910907 100%);
+  background: linear-gradient(top,  #fd1e19 0%,#b20804 7%,#b20804 49%,#a40905 51%,#910907 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fd1e19', endColorstr='#910907',GradientType=0 );
+}
+
+#bottomcontroller li a {
+  position: relative;
+  padding-left: 0 auto;
+  padding-right: 0 auto;
+}
