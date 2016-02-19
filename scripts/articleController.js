@@ -10,7 +10,7 @@
   };
 
   articlesController.loadAll = function(ctx, next) {
-    var articleData = function(allArticles) {
+    var articleData = function() {
       ctx.articles = Article.all;
       console.log("aC loadAll called");
       next();
