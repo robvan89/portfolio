@@ -6,6 +6,10 @@
 
 .main-nav {
   background-image: url('/img/prairie.jpg');
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 .main-nav ul {
@@ -51,7 +55,7 @@
   main {
     width: 70%;
     float: right;
-    background-color: #D1E8FF;
+    background-color: #5c9DFF;
     padding-right: 10%;
     display: inline-block;
   }
@@ -96,6 +100,14 @@
     display: block;
     text-align: right;
     padding-right: 4%;
+  }
+
+  .selfie {
+    display: block;
+  }
+
+  #bottomcontroller {
+    display: inline-block;
   }
 
   .main-nav ul li a:hover {

@@ -42,12 +42,24 @@
     })
   };
 
+  Article.findWhere = function(field, value, callback) {
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM articles WHERE ' + field + ' = ?;',
+          data: [value]
+        }
+      ],
+      callback
+    );
+  };
+
   Article.getAll = function(rawData) {
     $.getJSON('data/portdata.json', function(rawData) {
       console.log('loading json anew');
       localStorage.rawData = JSON.stringify(rawData);
       Article.loadAll(rawData);
-      articleView.initIndexPage();
+      articleView.index();
     });
   };
 
@@ -65,7 +77,7 @@
             console.log('changed etag load');
           } else {
             Article.loadAll(JSON.parse(localStorage.rawData));
-            articleView.initIndexPage();
+            articleView.index();
             console.log('Loaded from LS');
           }
         }
@@ -73,6 +85,7 @@
     } else {
       Article.getAll();
     }
+    console.log("fetchAll complete");
   };
 
 module.Article = Article;

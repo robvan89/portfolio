@@ -7,8 +7,7 @@
       $.get('https://api.github.com/users/robvan89/repos' + '?per_page=5&sort=updated')
         .done(function(data, message, xhr) {
           repos.all = data;
-        }
-      }).done(function() {
+        }).done(function() {
         callback();
       });
   };
