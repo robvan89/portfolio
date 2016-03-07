@@ -2,7 +2,7 @@
   var articlesController = {};
   Article.createTable();
 
-  articlesController.index = function() {
+  articlesController.index = function(ctx) {
     $('main > section').hide();
     console.log("aC index called");
     $('#articles').show();
@@ -18,9 +18,11 @@
 
     if (Article.all.length) {
       ctx.articles = Article.all;
+      console.log("ctx articles because article all length");
       next();
     } else {
-      Article.fetchAll();
+      console.log("Else");
+      Article.fetchAll(articleData);
     }
   };
 

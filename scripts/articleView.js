@@ -1,16 +1,16 @@
 (function(module) {
 var articleView = {};
 
-  articleView.populateFilters = function(rows) {
+  articleView.populateFilters = function() {
     template = Handlebars.compile($('#option-template').text());
-      if ($('#category-filter option').length < 2) {
-        $('#category-filter').append(
-          rows.map(function(row) {
-            console.log(rows);
-            return template({val: row.category});
-          })
-        );
-      };
+    console.log("Populate Filters");
+    webDB.execute('SELECT DISTINCT category FROM articles;', function(rows) {
+      $('#category-filter').append(
+        rows.map(function(row) {
+          return template({val: row.category});
+        })
+      );
+    });    
   };
 
   articleView.handleFilters = function() {
@@ -18,6 +18,16 @@ var articleView = {};
     $('#filters').one('change', 'select', function() {
       resource = this.id.replace('-filter', '');
       page('/' + resource + '/' + $(this).val().replace(/\W+/g, '+'));
+    });
+  };
+
+  articleView.setTeasers = function() {
+    $('.article-body *:nth-of-type(n+2)').hide();
+    console.log("Teasers set");
+    $('#articles').on('click', 'a.read-on', function(e) {
+      e.preventDefault();
+      $(this).parent().find('*').fadeIn();
+      $(this).hide();
     });
   };
 
@@ -29,11 +39,9 @@ var articleView = {};
         $('#articles').append(a.toHtml());
       });
 
-      articleView.populateFilters();
+      articleView.populateFilters(articles);
       articleView.handleFilters();
-      if ($('#articles article').length > 1) {
-        $('.article-body *:nth-of-type(n+2)').hide();
-      }
+      articleView.setTeasers();
     };
   module.articleView = articleView;
 })(window);
