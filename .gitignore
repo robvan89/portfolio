@@ -1,3 +1,8 @@
+githubToken.js
+scripts/githubToken.js
+
+node_modules/
+
 # Logs
 logs
 *.log

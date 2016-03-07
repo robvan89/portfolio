@@ -1,53 +1,47 @@
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+(function(module) {
 var articleView = {};
 
-articleView.populateFilters = function() {
-  $('article').each(function() {
-    if (!$(this).hasClass('template')) {
-      var val = $(this).attr('data-category');
-      var optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
-      }
-    }
-  });
-};
+  articleView.populateFilters = function() {
+    template = Handlebars.compile($('#option-template').text());
+    console.log("Populate Filters");
+    webDB.execute('SELECT DISTINCT category FROM articles;', function(rows) {
+      $('#category-filter').append(
+        rows.map(function(row) {
+          return template({val: row.category});
+        })
+      );
+    });    
+  };
 
-articleView.handleCategoryFilter = function() {
-  $('#category-filter').on('change', function() {
-    if ($(this).val()) {
-      $('article').hide();
-      $('article[data-category="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#author-filter').val('');
-  });
-};
+  articleView.handleFilters = function() {
+    console.log("handleFilters called");
+    $('#filters').one('change', 'select', function() {
+      resource = this.id.replace('-filter', '');
+      page('/' + resource + '/' + $(this).val().replace(/\W+/g, '+'));
+    });
+  };
 
-articleView.handleMainNav = function() {
-  $('.main-nav').on('click', '.tab', function(e) {
-    $('.tab-content').hide();
-    $('#' + $(this).data('content')).fadeIn();
-  });
+  articleView.setTeasers = function() {
+    $('.article-body *:nth-of-type(n+2)').hide();
+    console.log("Teasers set");
+    $('#articles').on('click', 'a.read-on', function(e) {
+      e.preventDefault();
+      $(this).parent().find('*').fadeIn();
+      $(this).hide();
+    });
+  };
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
-};
+  articleView.index = function(articles) {
+      $('#articles').show().siblings().hide();
+      $('#articles article').remove();
+      console.log("aV index called, articles removed");
+      Article.all.forEach(function(a) {
+        $('#articles').append(a.toHtml());
+      });
 
-articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
-
-  $('#articles').on('click', 'a.read-on', function(e) {
-    e.preventDefault();
-    $(this).parent().find('*').fadeIn();
-    $(this).hide();
-  });
-};
-
-$(document).ready(function() {
-  articleView.populateFilters();
-  articleView.handleCategoryFilter();
-  articleView.handleMainNav();
-  articleView.setTeasers();
-})
+      articleView.populateFilters(articles);
+      articleView.handleFilters();
+      articleView.setTeasers();
+    };
+  module.articleView = articleView;
+})(window);
