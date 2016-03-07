@@ -7,85 +7,104 @@
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Caveat+Brush' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/bottom.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
     <script id="article-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
-        <header>
-          <h1>{{title}}</h1>
-          <div class="byline">By <address><a href="{{authorUrl}}">{{author}}</a></address>
-          {{publishStatus}}
-          </div>
-        </header>
-        {{{body}}}
-      </article>
-    </script>
-
-  </head>
-  <body>
-    <header class="site-header clearfix">
-      <section class="heading-group-h1">
-        <h1>
-          Rob's Portfolio
-        </h1>
-        <h2>Stuff and things</h2>
-      </section>
-      <nav class="main-nav">
-        <a class="icon-menu" href="#">Menu</a>
-        <ul>
-          <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
-          <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-          <li><a href="http://twitter.com/dril" target="_blank" class="icon-twitter3"> Twitter</a></li>
-          <li><a href="http://github.com/robvan89" target="_blank" class="icon-github"> GitHub</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="articles" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
-          </ul>
-        </div>
-        <article class="template template" data-category="cat">
+      <section class="containme">
+        <article class="clearfix" title="{{title}}" data-category="{{category}}" idx="{{idx}}">
           <header>
-            <h1>Title</h1>
-            <div class="byline">
-              <!--Published <time pubdate datetime="2000-01-01">Publish Time</time>-->
-            </div>
+            <h1>{{title}}</h1>
           </header>
           <section class="article-body">{{{body}}}</section>
           <a href="#" class="read-on">Read on &rarr;</a>
         </article>
       </section>
-      <section id="about" class="tab-content">
-        <header>
-          Welcome to my Blog
-        </header>
-        <section>
-          <h1>Some of my interests:</h1>
-          <ul>
-            <li>Copypasta</li>
-          </ul>
+    </script>
+    <script id="link-template" type="text/x-handlebars-template">
+        <li><a href='"#' + {{idx}} + '"'> + {{title}} + '</a></li>
+    </script>
+    <script id="option-template" type="text/x-handlebars-templage">
+      <option value="{{val}}">{{val}}</option>
+    </script>
+  </head>
+  <body>
+    <nav class="main-nav">
+      <a class="icon-menu" href="#">Menu</a>
+      <img class="selfie" src="/img/rvl.jpg">
+      <p class="myname">Rob Van Leuven</p>
+      <p class="mytitle">Web designer/aspiring developer</p>
+      <ul>
+        <li class="tab moveover" data-content="articles"><a href="/" class="icon-home"> Home</a></li>
+        <li class="moveover"><a href="http://twitter.com/dril" target="_blank" class="icon-twitter3"> About</a></li>
+        <li class="tab moveover" data-content="code"><a href="/code" class="icon-address-book"> Code</a></li>
+        <li class="moveover"><a href="http://github.com/robvan89" target="_blank" class="icon-github"> GitHub</a></li>
+      </ul>
+      <section class="catfilt">
+        <select id="category-filter">
+          <option value="">Select Category</option>
+        </select>
+      </section>
+    </nav>
+    <main>
+      <section id="articles" class="tab-content arthome">
+      </section>
+      <section id="code" class="tab-content codehome">
+        <section class="containme">
+          <header>
+            Welcome to my Portfolio
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Copypasta</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+      <section id="code" class="tab-content abouthome">
+        <section class="containme">
+          <header>
+            Welcome to my Portfolio
+          </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Copypasta</li>
+            </ul>
+          </section>
         </section>
       </section>
     </main>
     <footer>
-      &copy; 2016
+      <section id="footer-content">&copy; 2016</section>
     </footer>
+    <section id="bottomcontroller">
+    </section>
 
+    <script src="/scripts/githubToken.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="vendor/scripts/marked.js"></script>
-    <script src="scripts/blogArticles.js"></script>
-    <script src="scripts/article.js"></script>
-    <script src="scripts/articleView.js"></script>
+
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/html5sql.js"></script>
+    <script src="/scripts/webdb.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+
+    <script src="/scripts/repo.js"></script>
+    <script src="/scripts/repoView.js"></script>
+
+    <script src="/scripts/article.js"></script>
+    <script src="/scripts/articleView.js"></script>
+    <script src="/scripts/articleController.js"></script>
+
+    <script src="/scripts/codeController.js"></script>
+    <script src="/scripts/bottomControls.js"></script>
+
+    <script src="/scripts/routes.js"></script>
   </body>
 </html>
