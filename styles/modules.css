@@ -1,17 +1,15 @@
-.site-header {
-  background-image:url('http://pssmrpg.jonathanddalton.com/wp-content/uploads/Space-BG-1.png');
-  background-repeat: no-repeat;
-}
-
-.heading-group-h1 {
-  float: left;
-  padding: 0 0 .2em 1em;
-}
-
 .icon-menu {
   float: right;
   font-size: 2.2em;
-  margin-right: 3%;
+  /*margin-right: 3%;*/
+}
+
+.main-nav {
+  background-image: url('/img/prairie.jpg');
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 .main-nav ul {
@@ -19,6 +17,18 @@
   padding: 0;
   list-style: none;
   clear: both;
+}
+
+.main-nav ul li a {
+  font-family: 'Poiret One', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.main-nav ul li {
+  background:rgba(255, 255, 255, 0.6);
+  margin: 1% 0 1% 0;
 }
 
 .main-nav:hover ul {
@@ -30,25 +40,10 @@
   font-size: 1.5em;
   padding-top: .2em;
   padding-bottom: .2em;
-  border-bottom: 1px solid #444;
-}
-
-#filters {
-  padding: 0;
-  list-style: none;
 }
 
 .template {
   display: none;
-}
-
-.byline {
-  color: #777;
-}
-
-.byline a {
-  font-weight: bold;
-  text-decoration: none;
 }
 
 @media only screen and (min-width: 800px) {
@@ -57,23 +52,72 @@
     display: none;
   }
 
+  main {
+    width: 70%;
+    float: right;
+    background-color: #5c9DFF;
+    padding-right: 10%;
+    display: inline-block;
+  }
+
+  .arthome {
+  }
+
+  .abouthome {
+  }
+
+  .main-nav {
+    display: inline-block;
+    width: 20%;
+    float: left;
+    height: 100%;
+    position: fixed;
+  }
+
+  .containme {
+    border-radius: 30px 30px 30px 30px;
+    border: 3px solid #000;
+    margin: 10% 0 10% 13%;
+    padding: 5% 5% 5% 5%;
+    background:rgba(255, 255, 255, 0.5);
+    background-image:url('/img/strf.jpg');
+  }
+
   .main-nav ul, .main-nav:hover ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content:center;
   }
 
   .main-nav ul li {
-    display: inline;
-    width: 15%;
-    padding-right: 2%;
+    display: block;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
   }
 
-  .main-nav li {
-    text-align: center;
+  .main-nav ul li a {
+    display: block;
+    text-align: right;
+    padding-right: 4%;
+  }
+
+  .selfie {
+    display: block;
+  }
+
+  #bottomcontroller {
+    display: inline-block;
   }
 
   .main-nav ul li a:hover {
-    color: #FFF;
+    padding-right: 22%;
+    color: #4994FF;
+    display: block;
+    -webkit-transition: all 0.5s ease-out;
+       -moz-transition: all 0.5s ease-out;
+        -ms-transition: all 0.5s ease-out;
+         -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
   }
 }

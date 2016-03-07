@@ -1,0 +1,48 @@
+#bottomcontroller {
+  position: fixed;
+  bottom: 0;
+  display: none;
+  right: 5%;
+  background: #FFF;
+  height: 10%;
+  width: 70%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  border-top: 1px solid #000;
+  border-right: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+#bottomcontroller li {
+  list-style: none;
+  display: inline-block;
+  padding-top: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-right: 2px solid #000;
+  width: 14%;
+  height: 100%;
+  background: #fd1e19;
+  background: -moz-linear-gradient(top,  #8FBEFF 0%, #61C3FF 7%, #4BADFF 49%, #2D94FF 51%, #3CA4FF 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8FBEFF), color-stop(7%,#61C3FF), color-stop(49%,#4BADFF), color-stop(51%,#2D94FF), color-stop(100%,#3CA4FF));
+  background: -webkit-linear-gradient(top,  #8FBEFF 0%,#61C3FF 7%,#4BADFF 49%,#2D94FF 51%,#3CA4FF 100%);
+  background: -o-linear-gradient(top,  #8FBEFF 0%,#61C3FF 7%,#4BADFF 49%,#2D94FF 51%,#3CA4FF 100%);
+  background: -ms-linear-gradient(top,  #8FBEFF 0%,#61C3FF 7%,#4BADFF 49%,#2D94FF 51%,#3CA4FF 100%);
+  background: linear-gradient(top,  #8FBEFF 0%,#61C3FF 7%,#4BADFF 49%,#2D94FF 51%,#3CA4FF 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8FBEFF', endColorstr='#3CA4FF',GradientType=0 );
+}
+
+#bottomcontroller li a {
+  position: relative;
+  color: #000;
+  font-family: 'Poiret One', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  line-height: 0.9em;
+  padding-left: 0 auto;
+  padding-right: 0 auto;
+}
+
+#bottomcontroller li a:hover {
+  color: #FFF;
+}
